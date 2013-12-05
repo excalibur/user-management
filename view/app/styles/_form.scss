@@ -1,0 +1,67 @@
+/**
+ * 简单表单样式
+ *
+ */
+
+// 横向
+.form-vertical{
+	.control-group {
+		padding: 20px 0;
+		margin-bottom: 0px;
+	}
+
+	.form-actions {
+		border-top: 1px solid #3f4954;
+	}
+	.add-on{
+		padding: 8px 9px 11px 9px;
+		color: #fff;
+	}
+	input {
+		height: 30px;
+		border: 0px;
+		display: inline-block;
+		width: 75%;
+		line-height: 28px;
+		margin-bottom: 3px;
+		padding: 5px;
+	}
+}
+
+
+// 按钮
+.btn {
+	display: inline-block;
+	text-align: center;
+	margin-bottom: 0;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	background-image: none;
+	border: 1px solid transparent;
+	padding: 6px 12px;
+	font-size: 1.3em;
+	margin-top: 10px;
+	text-decoration: none;
+	line-height: 1.2;
+	&:focus {
+		outline: none;
+		
+	}
+	&:hover,
+	&:focus {
+		outline: none;
+		
+	}
+
+	&.btn-primary{
+		color: #fff;
+		background-color: #3276b1;
+		border-color: #285e8e;
+	}
+	&.btn-success{
+		color: #fff;
+		background-color: #47a447;
+		border-color: #398439;
+	}
+}

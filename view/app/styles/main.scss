@@ -1,0 +1,86 @@
+@import "reset",
+        "helper",
+        "form";
+
+body {
+    // background: #fafafa;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #ffffff;
+    background-color: #2E363F;
+    font-size: 20px;
+}
+.main{
+    min-height: 500px;
+}
+.hero-unit {
+    margin: 50px auto 0 auto;
+    width: 300px;
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 30px;
+    background-color: #222;
+    border-radius: 6px;
+    padding: 60px;
+}
+
+.navbar {
+    position: relative;
+    border: 1px solid transparent;
+    background-color: #ffffff;
+    min-height: 70px;
+    .container {
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .navbar-header {
+        float: left;
+    }
+    .navbar-collapse {
+        float: left;
+    }
+    li {
+        display: inline-block;
+    }
+    a{
+        display: block;
+        padding: 20px 15px;
+        text-decoration: none;
+        color: #39b3d7;
+        &:hover {
+          color: #ed9c28;  
+        }
+    }
+    .brand {
+        color: #000000;
+        padding: 10px 15px;
+        font-size: 2em;
+        line-height: 1em;
+    }
+}
+
+#loginform {
+    margin: 50px auto 0 auto;
+    width: 300px;
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 30px;
+    border-top: 1px solid #3f4954;
+    padding: 40px 60px;
+    .normal-text {
+        padding: 15px 10px;
+        text-align: center;
+        line-height: 20px;
+    }
+    h3 {
+        font-weight: 600;
+        font-size: 2em;
+    }
+    .bg-username {
+        background: #28b779;
+    }
+    .bg-password {
+        background: #ffb848;
+    }
+}

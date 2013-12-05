@@ -1,0 +1,125 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.faith</groupId>
+  <artifactId>user-management-parent</artifactId>
+  <packaging>pom</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <name>User Management :: Parent</name>
+  <url>#</url>
+  
+  <modules>
+      <module>../core</module>
+      <module>../dao</module>
+      <module>../service</module>
+      <module>../web</module>
+  </modules>
+
+  <!-- 因为限制了不能使用框架 所以除了基本web jar和驱动jar以外都没使用 -->
+  <!-- 使用了的jar配置 -->
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <junit.version>4.10</junit.version>
+
+    <mongodb.version>2.11.3</mongodb.version>
+    <!-- jetty 用于方便调试 -->
+    <jetty.version>9.0.3.v20130506</jetty.version>
+    <redis.version>2.2.1</redis.version>
+    <jdk.version>1.7</jdk.version>
+  </properties>
+
+
+  <dependencyManagement>
+      <dependencies>
+          <dependency>
+              <groupId>org.faith</groupId>
+              <artifactId>user-management-core</artifactId>
+              <version>${project.version}</version>
+          </dependency>
+
+          <dependency>
+              <groupId>org.faith</groupId>
+              <artifactId>user-management-dao</artifactId>
+              <version>${project.version}</version>
+          </dependency>
+
+          <dependency>
+              <groupId>org.faith</groupId>
+              <artifactId>user-management-service</artifactId>
+              <version>${project.version}</version>
+          </dependency>
+
+          <dependency>
+              <groupId>org.faith</groupId>
+              <artifactId>user-management-web</artifactId>
+              <version>${project.version}</version>
+          </dependency>
+
+          <dependency>
+              <groupId>junit</groupId>
+              <artifactId>junit</artifactId>
+              <version>${junit.version}</version>
+              <scope>test</scope>
+          </dependency>
+
+          <!--mongodb驱动-->
+          <dependency>
+              <groupId>org.mongodb</groupId>
+              <artifactId>mongo-java-driver</artifactId>
+              <version>${mongodb.version}</version>
+          </dependency>
+
+          <!--redis驱动-->
+          <dependency>
+              <groupId>redis.clients</groupId>
+              <artifactId>jedis</artifactId>
+              <version>${redis.version}</version>
+              <type>jar</type>
+              <scope>compile</scope>
+          </dependency>
+
+          <!-- JSTL -->
+          <dependency>
+              <groupId>javax.servlet</groupId>
+              <artifactId>jstl</artifactId>
+              <version>1.2</version>
+          </dependency>
+          <!-- servlet api -->
+          <dependency>
+              <groupId>javax.servlet</groupId>
+              <artifactId>javax.servlet-api</artifactId>
+              <version>3.1.0</version>
+              <scope>provided</scope>
+          </dependency>
+          <!-- jsp api -->
+          <dependency>
+              <groupId>javax.servlet.jsp</groupId>
+              <artifactId>javax.servlet.jsp-api</artifactId>
+              <version>2.3.1</version>
+              <scope>provided</scope>
+          </dependency>
+          <!-- taglib -->
+          <dependency>
+              <groupId>taglibs</groupId>
+              <artifactId>standard</artifactId>
+              <version>1.1.2</version>
+              <scope>provided</scope>
+          </dependency>
+      </dependencies>
+
+  </dependencyManagement>
+
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-maven-plugin</artifactId>
+                    <version>${jetty.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>

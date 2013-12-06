@@ -17,11 +17,6 @@
       <dependency>
           <groupId>junit</groupId>
           <artifactId>junit</artifactId>
-          <scope>test</scope>
-      </dependency>
-      <dependency>
-          <groupId>org.mongodb</groupId>
-          <artifactId>mongo-java-driver</artifactId>
       </dependency>
   </dependencies>
   

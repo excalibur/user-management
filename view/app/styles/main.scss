@@ -1,6 +1,7 @@
 @import "reset",
         "helper",
-        "form";
+        "form",
+        "animations";
 
 body {
     // background: #fafafa;
@@ -83,4 +84,9 @@ body {
     .bg-password {
         background: #ffb848;
     }
+}
+
+#registerform {
+    margin: 50px auto 0 auto;
+    width: 500px;
 }

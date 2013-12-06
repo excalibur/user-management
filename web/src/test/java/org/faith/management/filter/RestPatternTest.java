@@ -1,5 +1,6 @@
 package org.faith.management.filter;
 
+import org.faith.management.web.common.Router;
 import org.junit.Test;
 
 import java.util.regex.Matcher;
@@ -27,5 +28,15 @@ public class RestPatternTest {
         if(matcher.find()){
             System.out.println(true);
         }
+    }
+
+    @Test
+    public void test03(){
+        String path = "/home";
+        System.out.println( path.indexOf(Router.login) == 0 ||
+                path.indexOf(Router.register) == 0 ||
+                path.indexOf("/favicon.ico") == 0 ||
+                (path.length() == 1 && path.indexOf(Router.index) == 0) ||
+                path.indexOf(Router.logout) == 0);
     }
 }

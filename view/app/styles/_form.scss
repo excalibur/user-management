@@ -5,17 +5,26 @@
 
 // 横向
 .form-vertical{
+	color: #fff;
 	.control-group {
 		padding: 20px 0;
 		margin-bottom: 0px;
+		p{
+			text-align: right;
+		}
 	}
+	
+	&.error{
+		color: #FD0A0A;
+		animation: shake 1s ease 300ms;
 
+	}
 	.form-actions {
 		border-top: 1px solid #3f4954;
 	}
 	.add-on{
 		padding: 8px 9px 11px 9px;
-		color: #fff;
+		
 	}
 	input {
 		height: 30px;
@@ -64,4 +73,5 @@
 		background-color: #47a447;
 		border-color: #398439;
 	}
+
 }

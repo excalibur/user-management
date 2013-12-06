@@ -1,8 +1,5 @@
 package org.faith.management.core.entity.domain;
 
-import com.mongodb.DB;
-import com.mongodb.DBCollection;
-import com.mongodb.Mongo;
 import org.junit.Before;
 
 import java.net.UnknownHostException;

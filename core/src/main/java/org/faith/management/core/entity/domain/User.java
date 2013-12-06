@@ -12,7 +12,6 @@ public class User extends AbstractEntity {
     private String username;
     private String password;
     private String name;
-    private String birthday;
     private String phone;
 
     public String getUsername() {
@@ -39,19 +38,28 @@ public class User extends AbstractEntity {
         this.name = name;
     }
 
-    public String getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
-    }
-
     public String getPhone() {
         return phone;
     }
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+
+        User user = (User) o;
+
+        if (!username.equals(user.username)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return username.hashCode();
     }
 }

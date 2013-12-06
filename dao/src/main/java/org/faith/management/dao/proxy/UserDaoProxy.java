@@ -1,37 +1,36 @@
 package org.faith.management.dao.proxy;
 
-import com.mongodb.DBCollection;
 import org.faith.management.core.entity.domain.User;
 import org.faith.management.dao.UserDao;
-import org.faith.management.dao.helper.DBConnectionHelper;
+import org.faith.management.dao.helper.RedisHelper;
 import org.faith.management.dao.impl.UserDaoImpl;
-
-import java.util.List;
+import redis.clients.jedis.Jedis;
 
 /**
  * UserDao的代理实现
  *
- * 主要是打开与关闭数据库连接
+ * 主要是控制链接的连接与释放
+ *
  *
  * @author faith
  * @since 0.0.1
  */
 public class UserDaoProxy implements UserDao{
     private UserDao userDao = null;
-    private DBCollection conn = null;
+    private Jedis jedis;
     public UserDaoProxy() {
-        conn = DBConnectionHelper.getConnection("users");
-        userDao = new UserDaoImpl(conn);
+        jedis =  RedisHelper.getJedis();
+        userDao = new UserDaoImpl(jedis);
     }
 
     @Override
     public User create(User user) {
         try {
-            userDao.create(user);
+            user = userDao.create(user);
         } finally {
-            DBConnectionHelper.close();
+            RedisHelper.returnResource(jedis);
         }
-        return null;
+        return user;
     }
 
     @Override
@@ -39,36 +38,27 @@ public class UserDaoProxy implements UserDao{
         try {
             userDao.update(user);
         } finally {
-            DBConnectionHelper.close();
+            RedisHelper.returnResource(jedis);
         }
     }
 
     @Override
-    public void delete(String id) {
+    public void delete(String username) {
         try {
-            userDao.delete(id);
+            userDao.delete(username);
         } finally {
-            DBConnectionHelper.close();
+            RedisHelper.returnResource(jedis);
         }
     }
 
     @Override
-    public User readById(String id) {
+    public User readByUsername(String username) {
+        User user = null;
         try {
-            userDao.readById(id);
+            user = userDao.readByUsername(username);
         } finally {
-            DBConnectionHelper.close();
+            RedisHelper.returnResource(jedis);
         }
-        return null;
-    }
-
-    @Override
-    public List<User> readAll() {
-        try {
-            userDao.readAll();
-        } finally {
-            DBConnectionHelper.close();
-        }
-        return null;
+        return user;
     }
 }

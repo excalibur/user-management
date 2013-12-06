@@ -21,11 +21,10 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <junit.version>4.10</junit.version>
+    <redis.version>2.2.1</redis.version>
 
-    <mongodb.version>2.11.3</mongodb.version>
     <!-- jetty 用于方便调试 -->
     <jetty.version>9.0.3.v20130506</jetty.version>
-    <redis.version>2.2.1</redis.version>
     <jdk.version>1.7</jdk.version>
   </properties>
 
